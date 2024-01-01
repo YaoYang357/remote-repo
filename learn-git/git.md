@@ -385,3 +385,21 @@ ssh方式使用前需要**配置ssh密钥**，具体目录和命令见上图。
 ### 解决合并冲突
 
 一般情况下如果两个分支的修改内容没有重合的部分的话，合并分支非常简单，但是如果两个分支修改了同一个文件的同一行代码，git就不知道保留哪个分支的修改内容了，也就产生了冲突，这个时候就需要我们手动来解决冲突。
+
+`git branch feat`其中feat就是feature的意思，一般用来表示开发某一个功能的分支。
+
+![image-20240101203731622](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101203731622.png)
+
+**小技巧：提交命令后面加上-a参数，就可以一个命令完成添加暂存和提交两个动作。（这个只对已经添加过的文件生效，如果是新文件就不能使用-a这个命令）。-a -m也可以省略成-am。**
+
+![image-20240101204442875](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101204442875.png)
+
+![image-20240101204515033](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101204515033.png)
+
+使用`git status`查看冲突文件的列表，**也可以使用`git diff`查看冲突的具体内容**：
+
+![image-20240101204618125](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101204618125.png)
+
+可以使用`git merge --abort`来终止合并。
+
+![image-20240101210027434](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101210027434.png)
