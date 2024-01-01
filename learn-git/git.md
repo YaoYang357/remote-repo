@@ -298,3 +298,90 @@ ssh方式使用前需要**配置ssh密钥**，具体目录和命令见上图。
 
 **如果本地已经有了一个仓库，怎样才能把它放到远程仓库里面呢？**
 
+![image-20240101143921203](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101143921203.png)
+
+![image-20240101143940339](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101143940339.png)
+
+![image-20240101143951147](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101143951147.png)
+
+![image-20240101144119620](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101144119620.png)
+
+![image-20240101144407635](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101144407635.png)
+
+第二行命令的意思是指定分支的名称为main，如果分支的默认名称是main则这一行的名利给可以省略。最后一行命令的意思是把本地的main分支和远程的origin仓库的main分支关联起来。
+
+![image-20240101144619061](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101144619061.png)
+
+其实命令的全称如上所示，-u是upstream的缩写，意思就是上面的仓库关联，后面的main：main就是把本地仓库的main分支推送给远程仓库的main分支。如果本地分支和远程分支名称相同，就可以省略，只写一个main就好了。
+
+![image-20240101150014536](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101150014536.png)
+
+上面是本地分支叫“master”，push到远程的main分支中去。
+
+![image-20240101150534914](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101150534914.png)
+
+如果省略pull后面的参数，就是默认拉取仓库别名为origin的main分支。
+
+**执行git pull的时候需要注意的一点就是，在执行完git pull之后，git会自动执行一次合并操作：**
+
+![image-20240101150959248](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101150959248.png)
+
+那么合并操作就会成功，
+
+![image-20240101151032761](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101151032761.png)
+
+这时需要手动解决一下冲突。
+
+**从远程仓库获取内容还可以使用fetch命令，他们的区别在于fetch只是获取远程仓库的修改，但是并不会自动合并到本地仓库中，而是需要手动合并。**这些内容在后面分支知识的部分学习。
+
+![image-20240101151255826](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101151255826.png)
+
+![image-20240101151339475](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101151339475.png)
+
+---
+
+**学习如何使用github以外的两个代码托管平台**
+
+![image-20240101191311991](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101191311991.png)
+
+---
+
+![image-20240101193036450](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101193036450.png)
+
+![image-20240101194533681](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101194533681.png)
+
+![image-20240101194813518](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101194813518.png)
+
+---
+
+![image-20240101195204301](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101195204301.png)
+
+**通过`git branch`命令查看当前分支列表**，通过`git branch xxx`来创建一个新的分支，建立了新的分支后，还需要切换到这个分支上，使用`git checkout xxx`切换到xxx这个分支。
+
+![image-20240101195829697](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101195829697.png)
+
+使用`git checkout xxx`命令存在潜在的风险，如果分支名称和文件名称相同的话，就会出现歧义。checkout会默认切换分支而不是恢复文件。**为了避免这种歧义，git官方在2.23版本开始为我们提供了一个新的命令`git switch xxx`，语义更加明确。**
+
+可以使用`git merge xxx`命令将不同的分支合并到当前分支中，merge后面的分支名称是将要被合并的分支。当前所在的分支就是合并后的目标分支。
+
+![image-20240101200950211](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101200950211.png)
+
+![image-20240101201125633](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101201125633.png)
+
+以上命令用来查看分支图。
+
+分支被合并后不会消失，如果不手工删除得话还是会存在的。
+
+`git branch -d dev`-d参数表示删除已经完成合并的分支。如果没有被合并得话是不能使用-d参数来删除的。
+
+![image-20240101201439069](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101201439069.png)
+
+该命令可以强制删这个分支。
+
+![image-20240101201553950](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101201553950.png)
+
+---
+
+### 解决合并冲突
+
+一般情况下如果两个分支的修改内容没有重合的部分的话，合并分支非常简单，但是如果两个分支修改了同一个文件的同一行代码，git就不知道保留哪个分支的修改内容了，也就产生了冲突，这个时候就需要我们手动来解决冲突。
