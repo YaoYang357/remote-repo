@@ -403,3 +403,58 @@ ssh方式使用前需要**配置ssh密钥**，具体目录和命令见上图。
 可以使用`git merge --abort`来终止合并。
 
 ![image-20240101210027434](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240101210027434.png)
+
+---
+
+![image-20240102110114102](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102110114102.png)
+
+![image-20240102110129279](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102110129279.png)
+
+**我们可以在任意分支上执行rebase操作。**如果在div分支上执行rebase操作，结果就是dev分支的两次提交记录就都会变基到main分支上，而在main分支上提交的话，main分支的两次提交记录就会变基到div分支的末尾，再把dev分支整个移动到main分支最新提交记录的后面。
+
+ ![image-20240102110722879](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102110722879.png)
+
+![image-20240102110729105](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102110729105.png)
+
+`git checkout -b dev 244d35`命令将这一分支恢复到244d35这一次的提交状态。
+
+![image-20240102111111455](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102111111455.png)
+
+小技巧：每次都输入`git log --oneline --graph --decorate --all`，可以使用`alias`命令将它定义成一个别名，如`alias graph=="git log --oneline --graph --decorate --all"`，这样以后我们就可以直接使用`graph`命令来查看图形化的提交记录了。
+
+![image-20240102111739387](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102111739387.png)
+
+`cp -rf branch-demo rebase1` 
+
+`cp -rf branch-demo rebase1` 
+
+cp这个命令是Linux下面用来复制文件的，其中：
+
+![image-20240102112030822](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102112030822.png)
+
+![image-20240102113801777](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102113801777.png)
+
+| Merge                                                | Rebase                                                       |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| **优点：**不会破坏原分支的提交历史，方便回溯和查看； | **优点：**不会新增额外的提交记录，形线性历史，比较直观和干净； |
+| **缺点：**会产生额外的提交节点，分支图比较复杂；     | **缺点：**会改变提交历史，改变了当前分支branch out的节点。**避免在共享分支使用。**这样可能会对和你一起在这个分支上开发的同时造成一些困扰，所以一般不会在公共的分支上执行rebase操作。 |
+
+---
+
+## 分支管理和工作流模型
+
+这节课讲Git分支管理中的一些工作流模型，就是一些比较好的规范和流程，可以让我们的工作更高效、更有条理。
+
+**GitFlow**工作流模型，适用于团队技术水平适中，有一定的开发流程和规范的团队。
+
+（cherry-pick指挑一些好的。）
+
+另一种比较流行的工作流模型是**GitHubFlow**模型，适用于一些技术水平比较高的团队或者开源项目。
+
+![image-20240102115603185](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102115603185.png)
+
+一般会设置分支保护，禁止团队成员直接在主分支上进行提交。pull request：PR
+
+此外，还有一些良好的习惯和规范，可以让团队协作更加高效，比如：分支的命名规范、分支的创建规范、分支的合并规范等等。
+
+![image-20240102120140705](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20240102120140705.png)
