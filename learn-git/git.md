@@ -460,3 +460,10 @@ cp这个命令是Linux下面用来复制文件的，其中：
 ![image-20240102120140705](git.assets\image-20240102120140705.png)
 
 ![image-20240102124530704](git.assets\image-20240102124530704.png)
+---
+**以下补充内容如无重大说明皆不标明日期**
+
+* git bash中输入"start ."可以打开当前路径下的资源管理器，一如在当前路径下的资源管理器点击右键中"git bash here"；输入”start ..“可以打开上一级目录，输入”start <path>“以打开某个具体路径，只输入start则打开cmd，**输入`start xxx.md`可以直接用typora打开md文件（前提是设置好md的默认打开方式）**！
+
+* [git ls-files命令 - eezhijun - 博客园 (cnblogs.com)](https://www.cnblogs.com/eezhijun/p/17717208.html)这个博客介绍了`git ls-files`命令。
+* [Git 文件权限数字（例如100644）表示什么|极客教程 (geek-docs.com)](https://geek-docs.com/git/git-questions/94_git_what_does_file_permission_number_eg100644_mean.html#:~:text=文件权限数字示例 1 100644：表示文件的所有者有读取和写入权限，而群组和其他用户只有读取权限。 这是最常见的文件权限数字，适用于大多数普通文件。 2,100755：表示文件的所有者有读取、写入和执行权限，而群组和其他用户只有读取和执行权限。 此权限数字适用于可执行文件。 3 120000：表示文件是一个符号链接（软链接）。 4 160000：表示文件是一个Git仓库的子模块。)
