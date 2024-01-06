@@ -468,5 +468,5 @@ cp这个命令是Linux下面用来复制文件的，其中：
 * [git ls-files命令 - eezhijun - 博客园 (cnblogs.com)](https://www.cnblogs.com/eezhijun/p/17717208.html)这个博客介绍了`git ls-files`命令。
 * [Git 文件权限数字（例如100644）表示什么|极客教程 (geek-docs.com)](https://geek-docs.com/git/git-questions/94_git_what_does_file_permission_number_eg100644_mean.html#:~:text=文件权限数字示例 1 100644：表示文件的所有者有读取和写入权限，而群组和其他用户只有读取权限。 这是最常见的文件权限数字，适用于大多数普通文件。 2,100755：表示文件的所有者有读取、写入和执行权限，而群组和其他用户只有读取和执行权限。 此权限数字适用于可执行文件。 3 120000：表示文件是一个符号链接（软链接）。 4 160000：表示文件是一个Git仓库的子模块。)
 
-- [git fetch & pull详解 - Runner_Jack - 博客园 (cnblogs.com)](https://www.cnblogs.com/runnerjack/p/9342362.html#:~:text=先用一张图来理一下 git fetch 和 git pull 的概念： 可以简单的概括为：,pull %3D git fetch %2B git merge ，这样可能会产生冲突，需要手动解决。)
+- [Git：远程分支----git fetch命令的使用-CSDN博客](https://blog.csdn.net/qq_42780289/article/details/98049574)
 
