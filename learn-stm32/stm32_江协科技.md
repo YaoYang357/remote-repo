@@ -284,4 +284,180 @@ DTG（Dead Time Generate）是死区生成电路，为了防止互补输出的PW
 - 在STM32中，使用const定义的“变量”是存储在Flash里面的。对于变量或者常量的地址是由编译器决定的，不同的程序地址可能不一样，是不固定的，对于外设寄存器来说地址是固定的（手册里有写），在程序中也可以用结构体访问寄存器。
 - `ADC1->DR`，起始地址加偏移，就是指定的寄存器，因为ADC1是一个结构体指针，所以要用->来取成员，之后用&来取成员地址。
 - 自动重装和软件触发不能同时使用，如果同时使用，DMA就会连续触发，永远也不会停下来。
-- 结构体中M2M结构体成员指定是否开启软件触发，也就是存储器到存储器的转运。																																			
+- 结构体中M2M结构体成员指定是否开启软件触发，也就是存储器到存储器的转运。
+
+
+
+## 	第九节 USART串口
+
+### [9-1]USART串口协议
+
+* 在串口中只能发射二进制数，也就是16进制的最直接的数据。
+* 一般来说，全双工的通信都有两根通信线，发送线路和接收线路互不影响——全双工。有单独的时钟线——时钟特性为同步，接收双方可以在时钟信号的指引下进行采样（如I2C、SPI等）；剩下的串口、CAN、USB等没有时钟线，所以需要双方约定一个采样频率，这就是异步通信，并且还需要加一些帧头帧尾等，进行采样位置的对齐。
+* 单端信号的高低电平都是相对于GND引脚的，所以严格上来说GND也算是通信线。
+* VCC如果两个设备都有独立供电，那VCC可以不接，如果其中一个设备没有供电，则其中一个模块通过VCC连接线向另一个模块供电，供电电压要按照子模块的要求来（如STM32与蓝牙模块的通信）。
+* 串口也有很多电平标准，直接从控制器出来的信号，一般都是TTL电平，相同的电平才能相互通信，不同的电平信号需要加一个电平转换芯片进行转接。
+
+### [9-2] USART串口外设
+
+- STM32的USART同步模式只支持时钟输出不支持时钟输入，这个同步模式更多地是为了兼容别的协议或者特殊用途而设计的，并不支持两个USART之间进行同步通信。主要还是学习异步通信（从这一点上看USART和UART也没什么区别）。
+- USART外设就是串口通信的硬件支持电路。
+- 波特率发生器其实就是一个分频器，比如APB2总线给一个72MHz的频率，然后波特率发生器进行一个分频，得到我们想要的波特率时钟，最后在这个时钟下进行首发，就是我们指定的通信波特率。
+- 在进行连续发射时，停止位长度决定了帧的间隔。最常用的是一位停止位。
+- 在STM32中USART的所有参数都可以通过配置寄存器来完成，使用库函数配置就更简单了，直接给结构体赋值即可。
+- 硬件流控制：在硬件电路上会多出一根线，如果B没准备好接收就置高电平；如果准备好了，就置低电平。A接收到了B反馈的准备信号，就只会在B准备好的时候，才发数据。硬件流控股之可以防止因为B处理慢而导致数据丢失的问题。
+- 智能卡、IrDA（用于红外通信）、LIN（局域网通信协议）：这是其他的一些协议，因为这些协议和串口非常类似，STM32对USART增加了一些小改动，就能兼容这些协议了。
+- ![image-20240113135911478](stm32_江协科技.assets/image-20240113135911478.png)
+
+​	发送移位寄存器：当数据从TDR移动到移位寄存器时，会置一个标志位TXE(TX Empty，发送数据寄存器空)，如果该标志位置1，就可以在TDR写入下一个数据了（此时数据还没有发送），然后发送移位寄存器就会在下面的发送器控制的驱动下向右移位，然后一位一位地，把数据输出到TX引脚。
+
+![image-20240113140244702](stm32_江协科技.assets/image-20240113140244702.png)
+
+**有了TDR和发送移位寄存器的双重缓存，可以保证连续发送数据的时候，数据帧之间不会有空闲，提高了工作效率。**
+
+- 接收移位寄存器在转移的过程中，也会置一个标志位，叫RXNE（RX Not Empty，接收数据寄存器非空），当检测到RXNE置1之后，就可以把数据读走了。
+- ![image-20240113140937975](stm32_江协科技.assets/image-20240113140937975.png)
+
+​	nRTS：Request To Send是请求发送，输出脚，n表示低电平有效；nCTS：Clear To Send是清除发送，输入脚，用于接收别人nRTS信号。需要双方都支持硬件数据流控制，本器件nRTS接对方nCTS，即nCTS和nRTS也要交叉连接。TX和nCTS是一对的，RX和nRTS是一对的。
+
+![image-20240113141713563](stm32_江协科技.assets/image-20240113141713563.png)
+
+- ![image-20240113141801783](stm32_江协科技.assets/image-20240113141801783.png)
+
+​	时钟信号是配合发送移位寄存器输出的，发送寄存器每移位一次，同步时钟电平就跳变一个周期。**这个时钟只支持输出，不支持输入，所以两个USART之间实现同步的串口通信。**这个时钟信号的作用有：兼容别的协议，如串口加上时钟后，就跟SPI协议非常像，所以有了时钟输出的串口就可以兼容SPI；另外这个时钟也可以做自适应波特率，比如接收设备不确定发送数据给的什么波特率，就可以测量一下这个时钟的周期，然后再计算得到波特率。
+
+- ![image-20240113142332058](stm32_江协科技.assets/image-20240113142332058.png)
+
+​	唤醒单元用于实现串口挂载多设备，当发送指定地址时，此设备唤醒开始工作，当发送别的设备地址时，别的设备就唤醒工作，这个设备没有收到地址就保持沉默，这样就可以实现多设备串口通信了。
+
+- RXNE标志位可以去申请中断，这样就可以在收到数据是直接进入中断函数，然后快速读取和保存数据。
+- ![image-20240113143754662](stm32_江协科技.assets/image-20240113143754662.png)
+
+​	电路中实际上有四个寄存器，但是在软件层面，只有一个“DR寄存器”可以供我们读写，写入DR时数据走发送的两个寄存器进行发送；读取DR时，数据走下面的这条路，进行接收。
+
+- 去原视频看起始位侦测的内容：[[9-2\] USART串口外设_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1th411z7sn?p=26&spm_id_from=pageDriver&vd_source=a257f8dabd79e42df87ac513807afcef)26:00左右。有噪声标志位NE的产生规则。
+- 波特率 = `fPCLK2/1` / `(16 * DIV)`：输入时钟/DIV要等于16倍的波特率，因为采样时钟要是16倍的波特率。
+- 寄存器经典分类：状态寄存器SR（Status Register）存放各种标志位；数据寄存器DR（Data Register）存放关键数据；配置寄存器CR（Config Register），存放各种配置参数。这三类寄存器基本每个外设都有。
+
+
+
+### [9-3] 串口发送&串口发送+接收
+
+- 多个系统之间互联，都要进行共地，这样电平才能有高低的参考（就像两个人比较身高，必须站在同意地平面上，才能比较）。
+- 串口模块和STLINK都插在电脑上，这样STM32模块和串口模块都有独立供电，所以USB转串口模块的电源正极就不需要接了（由跳线帽将USB输入5V通过稳压管转为3.3V后的电源接入模块即可）。
+- `USART_InitStructure.USART_BaudRate = 9600;`写好波特率之后USART_Init()函数内部会自动算好9600波特率对应的分频系数并装入到USART_BRR波特比率寄存器中。
+- `USART_InitStructure.USART_Mode = USART_Mode_Tx;`，如果USART模块即需要发送也需要接收，就把两个参数或起来。
+- ![image-20240113185941177](stm32_江协科技.assets/image-20240113185941177.png)
+
+​	MicroLIB是Keil为嵌入式平台优化的一个精简库，程序中移植的printf函数可以用MicroLIB。**注意，要在串口上显示移植后printf打印的数据，必须要勾选该库。**
+
+![image-20240113191859796](stm32_江协科技.assets/image-20240113191859796.png)
+
+​	`fputc()`函数在`stdio.h`库中，重写fputc函数需要引入该库。这样，printf函数就移植好了。
+
+- 在STM32中发送回车换行符要输入`\r\n`而不仅仅是写`\n`。
+- 第二种printf函数的移植方法：刚才的方法由于printf只能有一个，重定向到串口1，那串口2再用就没有了，**如果多个串口都想用printf那怎么办呢？**这时可以用sprintf，sprintf可以把格式化字符输出到一个字符串里。
+
+![image-20240113193242904](stm32_江协科技.assets/image-20240113193242904.png)
+
+​	因为sprintf可以指定打印位置，不涉及重定向的东西，所以每个串口都可以用sprintf进行格式化打印。
+
+- 第三种方法就是封装sprintf：
+
+``` c
+//封装可变参数格式，...用来接收后面的可变参数列表
+void Serial_Printf(char *format, ...)
+{
+	char String[100];
+	va_list arg;
+	va_start(arg, format);
+	//sprintf函数只能用来接收固定的参数列表，这里用vsprintf
+	vsprintf(String, format, arg);
+	va_end(arg);
+	Serial_SendString(String);
+}
+```
+
+- 显示汉字的操作方法：如果printf打印汉字会乱码，则在下图位置输入`--no-multibyte-chars`。
+
+![image-20240113195651547](stm32_江协科技.assets/image-20240113195651547.png)
+
+- UTF-8可能有些软件的兼容性不好，第二种显示汉字的方法是切换为GB2312编码方式，这时不用加上边的参数：**⚠这种方法没成功，似乎无法切换编码格式**
+
+![image-20240113195909682](stm32_江协科技.assets/image-20240113195909682.png)
+
+- 对于串口的接收，可以使用查询和中断两种方法。如果使用查询，则初始化函数为下面的代码：
+
+``` c
+void Serial_Init(void)
+{
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+	
+	GPIO_InitTypeDef GPIO_InitSturcture;
+	GPIO_InitSturcture.GPIO_Mode = GPIO_Mode_AF_PP;
+	GPIO_InitSturcture.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitSturcture.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitSturcture);
+
+	GPIO_InitSturcture.GPIO_Mode = GPIO_Mode_IPU;
+	GPIO_InitSturcture.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitSturcture.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitSturcture);
+
+	USART_InitTypeDef USART_InitStructure;
+	USART_InitStructure.USART_BaudRate = 9600;
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_Init(USART1, &USART_InitStructure);
+	
+	USART_Cmd(USART1, ENABLE);
+}
+```
+
+如果使用中断，则:
+
+``` c
+void Serial_Init(void)
+{
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+	
+	GPIO_InitTypeDef GPIO_InitSturcture;
+	GPIO_InitSturcture.GPIO_Mode = GPIO_Mode_AF_PP;
+	GPIO_InitSturcture.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitSturcture.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitSturcture);
+
+	GPIO_InitSturcture.GPIO_Mode = GPIO_Mode_IPU;
+	GPIO_InitSturcture.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitSturcture.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitSturcture);
+
+	USART_InitTypeDef USART_InitStructure;
+	USART_InitStructure.USART_BaudRate = 9600;
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_Init(USART1, &USART_InitStructure);
+
+	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+	NVIC_InitTypeDef NVIC_InitStructure;
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_Init(&NVIC_InitStructure);
+	
+	USART_Cmd(USART1, ENABLE);
+}
+```
+
