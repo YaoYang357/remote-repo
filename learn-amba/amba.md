@@ -93,3 +93,10 @@ $$
 ![image-20240116214154295](amba.assets/image-20240116214154295.png)
 
 ？作业题：手绘DMA在SoC系统中，是如何通过AHB总线跟CPU协同工作，实现memory到memory的数据传输的。
+
+
+
+[AMBA总线介绍课程第2课-讷言Wisdom-稍后再看-哔哩哔哩视频 (bilibili.com)](https://www.bilibili.com/list/watchlater?oid=899822691&bvid=BV1PN4y1c7W4&spm_id_from=333.1007.top_right_bar_window_view_later.content.click)
+
+# AMBA总线介绍第2课
+
