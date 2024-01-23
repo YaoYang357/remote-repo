@@ -771,6 +771,66 @@ void W25Q64_PageProgram(uint32_t Address, uint8_t *DataArray, uint16_t Count)
 
 - 获取DIV的作用：可以通过对获取到的DIV值进行线性变换获取小于s的单位时间如ms：`(32767 - RTC_GetDivider()) / 32767 * 999`。
 
+
+
+## [13-1] 电源控制
+
+- STM32中CPU核心、存储器、内置数字外设等都是以1.8V的低电压运行的，是通过VDD供电区域中的电压调节器降压得到的。当这些外设需要与外界进行交流时，才会通过IO电路转换到3.3V。
+- ![image-20240123123331995](stm32_jxkj.assets/image-20240123123331995.png)
+
+- PDDS设置为0进入停机模式，PDDS设置为1进入待机模式。详细情况参见ppt183页。
+- GPIO引脚的高低电平在睡眠时是维持原样的。
+- 修改主频后，很多涉及精准计时的计算都要做好匹配的工作。
+- 直接执行`__WFI()`函数，参数`SLEEPDEEP=0, SLEEPONEXIT=0`，默认进入睡眠模式（立刻睡眠）。如果想进行进一步配置需要用操作寄存器的方式完成。
+- ⚠芯片在三种低功耗模式下是无法直接再下载程序的，需要按住复位键的同时点击下载按钮，然后及时放开复位键。
+- `PWR_EnterSTOPMode()`函数的两个参数中，第一个参数指定电压调节器在停止模式里的状态（开启或者低功耗），第二个参数是指定停止模式的入口参数（WFI或者WFE）。
+- 当一个中断或者唤醒事件导致退出停止模式时，HSI（8MHz）被选为系统时钟，所以唤醒之后的程序运行就会明显变慢，解决方法是在退出停止模式之后重新调用`SystemInit()`，重新启动HSE，配置72MHz的主频就行了。
+
+``` C
+int main(void)
+{
+	OLED_Init();
+	CountSensor_Init();
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
+	
+	OLED_ShowString(1, 1, "Count:");
+	
+	while (1)
+	{
+		OLED_ShowNum(1, 7, CountSensor_Get(), 5);
+		
+		OLED_ShowString(2, 1, "Running");
+		Delay_ms(100);
+		OLED_ShowString(2, 1, "       ");
+		Delay_ms(100);
+		
+		PWR_EnterSTOPMode(PWR_Regulator_ON, PWR_STOPEntry_WFI);
+		SystemInit();
+	}
+}
+```
+
+- 执行到WFI指令后，程序立刻暂停；等外部中断发生时，芯片从**睡眠或停机模式唤醒**，此时程序先进入到外部中断函数里执行一遍，中断函数退出后，程序在到WFI调用后的部分继续执行。
+
+- 为了避免写入一些只写的寄存器后无法读出值，可以在写入之前用一个变量将待写入值保存下来。
+
+``` c
+uint32_t Alarm = RTC_GetCounter() + 10;
+RTC_SetAlarm(Alarm);
+```
+
+- 模块之间的时钟开启最好独立，即使在某模块（如A）中已经开启时钟，在调用该模块的函数也可以出于减小耦合的目的再次开启，这样当A模块修改后不再开启某个时钟也不会出现很隐蔽的bug。
+- 芯片从**待机模式**唤醒时，程序从main函数的开始进行执行，也就是从头执行，执行到进入待机模式的语句为止，之后的语句永远不会被执行。其实while循环也只被执行了一次。
+- STM32在进入待机模式之前要尽量把外挂模块都关掉，有些外挂模块的耗电量远超STM32本身。这样才能最大化省电。
+- 使能WKUP后，WKUP引脚被强置为输入下拉的配置，不需要进行GPIO初始化了。
+
+
+
+## [14-1] WDG看门狗
+
+
+
 ## 参考资料
 
 [STM32入门教程.pdf](stm32_jxkj.assets/STM32入门教程.pptx)
