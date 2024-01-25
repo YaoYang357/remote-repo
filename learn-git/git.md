@@ -470,3 +470,4 @@ cp这个命令是Linux下面用来复制文件的，其中：
 
 - [Git：远程分支----git fetch命令的使用-CSDN博客](https://blog.csdn.net/qq_42780289/article/details/98049574)
 
+- ⚠如果出现22端口异常问题，可以将.ssh/config文件中github的host name从github.com改为ssh.github.com
