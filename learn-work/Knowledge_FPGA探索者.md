@@ -45,13 +45,13 @@
 
 
 
-![NMOS和PMOS的表示方法](Knowledge.assets/640.png)
+![NMOS和PMOS的表示方法](Knowledge_FPGA探索者.assets/640.png)
 
 - PMOS管是源极进去，NMOS管是源极出来。（a/b）
 
 - PMOS管在输入端为0时导通，NMOS管在输入端为1时导通。(c)
 
-![image-20240306200137075](Knowledge.assets/image-20240306200137075.png)
+![image-20240306200137075](Knowledge_FPGA探索者.assets/image-20240306200137075.png)
 
 - 驱动端为0时，NMOS管导通，反相器（右边的一对MOS管）输出接地，电阻上没有电流，因此功耗较低。
 
@@ -78,11 +78,11 @@
 
 -   Xilinx 的 7 系列 FPGA 中有两种 Slice（Slice Logic，Slice Memory），其区别在于 LUT6 的实现上（具体内容见补充链接）。
 
-![图片](Knowledge.assets/640-1709731329300-10.png)
+![图片](Knowledge_FPGA探索者.assets/640-1709731329300-10.png)
 
 - 对于Altera系列的FPGA，其底层组合逻辑也是依靠LUT查找表实现的。
 
-![图片](Knowledge.assets/640-1709731369511-13.png)
+![图片](Knowledge_FPGA探索者.assets/640-1709731369511-13.png)
 
 **（3）**笔试 | 代码与门电路，底层资源映射（一段代码会对应到什么门电路）
 
