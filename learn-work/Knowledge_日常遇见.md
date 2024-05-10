@@ -1,5 +1,6 @@
 1. 握手协议？[一道Nvidia的面试题 (qq.com)](https://mp.weixin.qq.com/s/EDAjjVJzzyKstI10fqv6Lw)
 
+    ```verilog
     module valid_ready_to_4phase (
         input clk,
         input reset,
@@ -49,8 +50,16 @@
         end
     end
     endmodule
+    ```
 
 2. 电平标准有哪些？[常用电平标准（TTL、RS232、RS485、RS422）_rs422电平标准-CSDN博客](https://blog.csdn.net/qq_48641886/article/details/127757440)
+
 3. PLL和DLL？[FPGA学习笔记（五）PLL和DLL的区别_pll dll-CSDN博客](https://blog.csdn.net/qq_33194301/article/details/103681263)
+
 4. Lint和CDC？https://zhuanlan.zhihu.com/p/107543484
+
 5. 计数器一次有两个位发生跳变可能会产生毛刺？例如，在一个从 01（二进制）跳变到 10（二进制）的2位计数器中，两位几乎同时发生变化。如果第一位稍微延迟翻转，而第二位先翻转，可能会短暂出现不正确的状态（如从 01 到 11 到 10），这种过渡状态就是毛刺。
+
+6. FPGA实现乒乓操作，和FIFO有什么区别？
+
+7. RISC-V中断相关？
