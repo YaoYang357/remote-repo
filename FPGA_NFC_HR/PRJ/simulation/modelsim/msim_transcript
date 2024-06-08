@@ -1,0 +1,913 @@
+# Reading C:/intelFPGA/modeltech64_10.5/tcl/vsim/pref.tcl
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do FPGA_NFC_run_msim_rtl_verilog.do
+# if ![file isdirectory verilog_libs] {
+# 	file mkdir verilog_libs
+# }
+# 
+# vlib verilog_libs/altera_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_ver".
+# vmap altera_ver ./verilog_libs/altera_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap altera_ver ./verilog_libs/altera_ver 
+# Copying C:/intelFPGA/modeltech64_10.5/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# vlog -vlog01compat -work altera_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/altera_primitives.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:44 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work altera_ver c:/intelfpga/18.1/quartus/eda/sim_lib/altera_primitives.v 
+# -- Compiling module global
+# -- Compiling module carry
+# -- Compiling module cascade
+# -- Compiling module carry_sum
+# -- Compiling module exp
+# -- Compiling module soft
+# -- Compiling module opndrn
+# -- Compiling module row_global
+# -- Compiling module TRI
+# -- Compiling module lut_input
+# -- Compiling module lut_output
+# -- Compiling module latch
+# -- Compiling module dlatch
+# -- Compiling module prim_gdff
+# -- Compiling module dff
+# -- Compiling module dffe
+# -- Compiling module dffea
+# -- Compiling module dffeas
+# -- Compiling module dffeas_pr
+# -- Compiling module prim_gtff
+# -- Compiling module tff
+# -- Compiling module tffe
+# -- Compiling module prim_gjkff
+# -- Compiling module jkff
+# -- Compiling module jkffe
+# -- Compiling module prim_gsrff
+# -- Compiling module srff
+# -- Compiling module srffe
+# -- Compiling module clklock
+# -- Compiling module alt_inbuf
+# -- Compiling module alt_outbuf
+# -- Compiling module alt_outbuf_tri
+# -- Compiling module alt_iobuf
+# -- Compiling module alt_inbuf_diff
+# -- Compiling module alt_outbuf_diff
+# -- Compiling module alt_outbuf_tri_diff
+# -- Compiling module alt_iobuf_diff
+# -- Compiling module alt_bidir_diff
+# -- Compiling module alt_bidir_buf
+# -- Compiling UDP PRIM_GDFF_LOW
+# -- Compiling UDP PRIM_GDFF_LOW_SCLR_PRIORITY
+# -- Compiling UDP PRIM_GDFF_HIGH
+# -- Compiling UDP PRIM_GDFF_HIGH_SCLR_PRIORITY
+# 
+# Top level modules:
+# 	global
+# 	carry
+# 	cascade
+# 	carry_sum
+# 	exp
+# 	soft
+# 	opndrn
+# 	row_global
+# 	TRI
+# 	lut_input
+# 	lut_output
+# 	latch
+# 	dlatch
+# 	dff
+# 	dffe
+# 	dffea
+# 	dffeas
+# 	dffeas_pr
+# 	tff
+# 	tffe
+# 	jkff
+# 	jkffe
+# 	srff
+# 	srffe
+# 	clklock
+# 	alt_inbuf
+# 	alt_outbuf
+# 	alt_outbuf_tri
+# 	alt_iobuf
+# 	alt_inbuf_diff
+# 	alt_outbuf_diff
+# 	alt_outbuf_tri_diff
+# 	alt_iobuf_diff
+# 	alt_bidir_diff
+# 	alt_bidir_buf
+# End time: 15:39:44 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlib verilog_libs/lpm_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/lpm_ver".
+# vmap lpm_ver ./verilog_libs/lpm_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap lpm_ver ./verilog_libs/lpm_ver 
+# Modifying modelsim.ini
+# vlog -vlog01compat -work lpm_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/220model.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:44 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work lpm_ver c:/intelfpga/18.1/quartus/eda/sim_lib/220model.v 
+# -- Compiling module LPM_MEMORY_INITIALIZATION
+# -- Compiling module LPM_HINT_EVALUATION
+# -- Compiling module LPM_DEVICE_FAMILIES
+# -- Compiling module lpm_constant
+# -- Compiling module lpm_inv
+# -- Compiling module lpm_and
+# -- Compiling module lpm_or
+# -- Compiling module lpm_xor
+# -- Compiling module lpm_bustri
+# -- Compiling module lpm_mux
+# -- Compiling module lpm_decode
+# -- Compiling module lpm_clshift
+# -- Compiling module lpm_add_sub
+# -- Compiling module lpm_compare
+# -- Compiling module lpm_mult
+# -- Compiling module lpm_divide
+# -- Compiling module lpm_abs
+# -- Compiling module lpm_counter
+# -- Compiling module lpm_latch
+# -- Compiling module lpm_ff
+# -- Compiling module lpm_shiftreg
+# -- Compiling module lpm_ram_dq
+# -- Compiling module lpm_ram_dp
+# -- Compiling module lpm_ram_io
+# -- Compiling module lpm_rom
+# -- Compiling module lpm_fifo
+# -- Compiling module lpm_fifo_dc_dffpipe
+# -- Compiling module lpm_fifo_dc_fefifo
+# -- Compiling module lpm_fifo_dc_async
+# -- Compiling module lpm_fifo_dc
+# -- Compiling module lpm_inpad
+# -- Compiling module lpm_outpad
+# -- Compiling module lpm_bipad
+# 
+# Top level modules:
+# 	lpm_constant
+# 	lpm_inv
+# 	lpm_and
+# 	lpm_or
+# 	lpm_xor
+# 	lpm_bustri
+# 	lpm_mux
+# 	lpm_decode
+# 	lpm_clshift
+# 	lpm_add_sub
+# 	lpm_compare
+# 	lpm_mult
+# 	lpm_divide
+# 	lpm_abs
+# 	lpm_counter
+# 	lpm_latch
+# 	lpm_ff
+# 	lpm_shiftreg
+# 	lpm_ram_dq
+# 	lpm_ram_dp
+# 	lpm_ram_io
+# 	lpm_rom
+# 	lpm_fifo
+# 	lpm_fifo_dc
+# 	lpm_inpad
+# 	lpm_outpad
+# 	lpm_bipad
+# End time: 15:39:44 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlib verilog_libs/sgate_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/sgate_ver".
+# vmap sgate_ver ./verilog_libs/sgate_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap sgate_ver ./verilog_libs/sgate_ver 
+# Modifying modelsim.ini
+# vlog -vlog01compat -work sgate_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/sgate.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:44 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work sgate_ver c:/intelfpga/18.1/quartus/eda/sim_lib/sgate.v 
+# -- Compiling module oper_add
+# -- Compiling module oper_addsub
+# -- Compiling module mux21
+# -- Compiling module io_buf_tri
+# -- Compiling module io_buf_opdrn
+# -- Compiling module oper_mult
+# -- Compiling module tri_bus
+# -- Compiling module oper_div
+# -- Compiling module oper_mod
+# -- Compiling module oper_left_shift
+# -- Compiling module oper_right_shift
+# -- Compiling module oper_rotate_left
+# -- Compiling module oper_rotate_right
+# -- Compiling module oper_less_than
+# -- Compiling module oper_mux
+# -- Compiling module oper_selector
+# -- Compiling module oper_decoder
+# -- Compiling module oper_bus_mux
+# -- Compiling module oper_latch
+# 
+# Top level modules:
+# 	oper_add
+# 	oper_addsub
+# 	mux21
+# 	io_buf_tri
+# 	io_buf_opdrn
+# 	oper_mult
+# 	tri_bus
+# 	oper_div
+# 	oper_mod
+# 	oper_left_shift
+# 	oper_right_shift
+# 	oper_rotate_left
+# 	oper_rotate_right
+# 	oper_less_than
+# 	oper_mux
+# 	oper_selector
+# 	oper_decoder
+# 	oper_bus_mux
+# 	oper_latch
+# End time: 15:39:44 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlib verilog_libs/altera_mf_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_mf_ver".
+# vmap altera_mf_ver ./verilog_libs/altera_mf_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap altera_mf_ver ./verilog_libs/altera_mf_ver 
+# Modifying modelsim.ini
+# vlog -vlog01compat -work altera_mf_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/altera_mf.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:44 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work altera_mf_ver c:/intelfpga/18.1/quartus/eda/sim_lib/altera_mf.v 
+# -- Compiling module lcell
+# -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
+# -- Compiling module ALTERA_MF_HINT_EVALUATION
+# -- Compiling module ALTERA_DEVICE_FAMILIES
+# -- Compiling module dffp
+# -- Compiling module pll_iobuf
+# -- Compiling module stx_m_cntr
+# -- Compiling module stx_n_cntr
+# -- Compiling module stx_scale_cntr
+# -- Compiling module MF_pll_reg
+# -- Compiling module MF_stratix_pll
+# -- Compiling module arm_m_cntr
+# -- Compiling module arm_n_cntr
+# -- Compiling module arm_scale_cntr
+# -- Compiling module MF_stratixii_pll
+# -- Compiling module ttn_m_cntr
+# -- Compiling module ttn_n_cntr
+# -- Compiling module ttn_scale_cntr
+# -- Compiling module MF_stratixiii_pll
+# -- Compiling module cda_m_cntr
+# -- Compiling module cda_n_cntr
+# -- Compiling module cda_scale_cntr
+# -- Compiling module MF_cycloneiii_pll
+# -- Compiling module MF_cycloneiiigl_m_cntr
+# -- Compiling module MF_cycloneiiigl_n_cntr
+# -- Compiling module MF_cycloneiiigl_scale_cntr
+# -- Compiling module cycloneiiigl_post_divider
+# -- Compiling module MF_cycloneiiigl_pll
+# -- Compiling module altpll
+# -- Compiling module altlvds_rx
+# -- Compiling module stratix_lvds_rx
+# -- Compiling module stratixgx_dpa_lvds_rx
+# -- Compiling module stratixii_lvds_rx
+# -- Compiling module flexible_lvds_rx
+# -- Compiling module stratixiii_lvds_rx
+# -- Compiling module stratixiii_lvds_rx_channel
+# -- Compiling module stratixiii_lvds_rx_dpa
+# -- Compiling module altlvds_tx
+# -- Compiling module stratixv_local_clk_divider
+# -- Compiling module stratix_tx_outclk
+# -- Compiling module stratixii_tx_outclk
+# -- Compiling module flexible_lvds_tx
+# -- Compiling module dcfifo_dffpipe
+# -- Compiling module dcfifo_fefifo
+# -- Compiling module dcfifo_async
+# -- Compiling module dcfifo_sync
+# -- Compiling module dcfifo_low_latency
+# -- Compiling module dcfifo_mixed_widths
+# -- Compiling module dcfifo
+# -- Compiling module altera_syncram_derived
+# -- Compiling module altera_syncram_derived_forwarding_logic
+# -- Compiling module altaccumulate
+# -- Compiling module altmult_accum
+# -- Compiling module altmult_add
+# -- Compiling module altfp_mult
+# -- Compiling module altsqrt
+# -- Compiling module altclklock
+# -- Compiling module altddio_in
+# -- Compiling module altddio_out
+# -- Compiling module altddio_bidir
+# -- Compiling module altdpram
+# -- Compiling module altsyncram
+# -- Compiling module altsyncram_body
+# -- Compiling module alt3pram
+# -- Compiling module parallel_add
+# -- Compiling module scfifo
+# -- Compiling module altshift_taps
+# -- Compiling module a_graycounter
+# -- Compiling module altsquare
+# -- Compiling module altera_std_synchronizer
+# -- Compiling module altera_std_synchronizer_bundle
+# -- Compiling module alt_cal
+# -- Compiling module alt_cal_mm
+# -- Compiling module alt_cal_c3gxb
+# -- Compiling module alt_cal_sv
+# -- Compiling module alt_cal_av
+# -- Compiling module alt_aeq_s4
+# -- Compiling module alt_eyemon
+# -- Compiling module alt_dfe
+# -- Compiling module signal_gen
+# -- Compiling module jtag_tap_controller
+# -- Compiling module dummy_hub
+# -- Compiling module sld_virtual_jtag
+# -- Compiling module sld_signaltap
+# -- Compiling module altstratixii_oct
+# -- Compiling module altparallel_flash_loader
+# -- Compiling module altserial_flash_loader
+# -- Compiling module alt_fault_injection
+# -- Compiling module sld_virtual_jtag_basic
+# -- Compiling module altsource_probe
+# 
+# Top level modules:
+# 	lcell
+# 	altpll
+# 	altlvds_rx
+# 	altlvds_tx
+# 	dcfifo
+# 	altaccumulate
+# 	altmult_accum
+# 	altmult_add
+# 	altfp_mult
+# 	altsqrt
+# 	altclklock
+# 	altddio_bidir
+# 	altdpram
+# 	alt3pram
+# 	parallel_add
+# 	scfifo
+# 	altshift_taps
+# 	a_graycounter
+# 	altsquare
+# 	altera_std_synchronizer_bundle
+# 	alt_cal
+# 	alt_cal_mm
+# 	alt_cal_c3gxb
+# 	alt_cal_sv
+# 	alt_cal_av
+# 	alt_aeq_s4
+# 	alt_eyemon
+# 	alt_dfe
+# 	sld_virtual_jtag
+# 	sld_signaltap
+# 	altstratixii_oct
+# 	altparallel_flash_loader
+# 	altserial_flash_loader
+# 	alt_fault_injection
+# 	sld_virtual_jtag_basic
+# 	altsource_probe
+# End time: 15:39:45 on Jun 08,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vlib verilog_libs/altera_lnsim_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_lnsim_ver".
+# vmap altera_lnsim_ver ./verilog_libs/altera_lnsim_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap altera_lnsim_ver ./verilog_libs/altera_lnsim_ver 
+# Modifying modelsim.ini
+# vlog -sv -work altera_lnsim_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/altera_lnsim.sv}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:46 on Jun 08,2024
+# vlog -reportprogress 300 -sv -work altera_lnsim_ver c:/intelfpga/18.1/quartus/eda/sim_lib/altera_lnsim.sv 
+# -- Compiling package altera_lnsim_functions
+# -- Compiling package altera_generic_pll_functions
+# -- Compiling module generic_pll
+# -- Importing package altera_lnsim_functions
+# -- Importing package altera_generic_pll_functions
+# -- Compiling module generic_cdr
+# -- Compiling module common_28nm_ram_pulse_generator
+# -- Compiling module common_28nm_ram_register
+# -- Compiling module common_28nm_ram_block
+# -- Compiling module generic_m20k
+# -- Compiling module generic_m10k
+# -- Compiling module common_28nm_mlab_cell_pulse_generator
+# -- Compiling module common_28nm_mlab_latch
+# -- Compiling module common_28nm_mlab_cell_core
+# -- Compiling module common_porta_latches
+# -- Compiling module generic_28nm_hp_mlab_cell_impl
+# -- Compiling module common_porta_registers
+# -- Compiling module generic_28nm_lc_mlab_cell_impl
+# -- Compiling module common_28nm_lutram_register
+# -- Compiling module generic_14nm_mlab_cell_impl
+# -- Compiling module common_14nm_lutram_register
+# -- Compiling module generic_mux
+# -- Compiling module generic_device_pll
+# -- Compiling module altera_mult_add
+# -- Compiling module altera_mult_add_rtl
+# -- Compiling module ama_signed_extension_function
+# -- Compiling module ama_dynamic_signed_function
+# -- Compiling module ama_register_function
+# -- Compiling module ama_register_with_ext_function
+# -- Compiling module ama_data_split_reg_ext_function
+# -- Compiling module ama_coef_reg_ext_function
+# -- Compiling module ama_adder_function
+# -- Compiling module ama_multiplier_function
+# -- Compiling module ama_preadder_function
+# -- Compiling module ama_chainout_adder_accumulator_function
+# -- Compiling module ama_systolic_adder_function
+# -- Compiling module ama_scanchain
+# -- Compiling module ama_latency_function
+# -- Compiling module altera_pll_reconfig_tasks
+# -- Compiling module altera_syncram
+# -- Compiling module altera_syncram_forwarding_logic
+# -- Compiling module ALTERA_LNSIM_MEMORY_INITIALIZATION
+# -- Compiling module altera_stratixv_pll
+# -- Compiling module altera_arriav_pll
+# -- Compiling module altera_arriavgz_pll
+# -- Compiling module altera_cyclonev_pll
+# -- Compiling module altera_pll
+# -- Compiling module dps_extra_kick
+# -- Compiling module dprio_init
+# -- Compiling module dps_pulse_gen
+# -- Compiling module altera_iopll
+# -- Compiling module dps_pulse_gen_iopll
+# -- Compiling module twentynm_iopll_arlol
+# -- Compiling module fourteennm_altera_iopll
+# -- Compiling module dps_pulse_gen_fourteennm_iopll
+# -- Compiling package fourteennm_iopll_functions
+# -- Compiling module fourteennm_simple_iopll
+# -- Importing package fourteennm_iopll_functions
+# -- Compiling module fourteennm_sub_iopll
+# -- Compiling module twentynm_iopll_ip
+# -- Compiling module altera_iopll_rotation_lcells
+# -- Compiling module altera_pll_dps_lcell_comb
+# -- Compiling module iopll_bootstrap
+# 
+# Top level modules:
+# 	generic_cdr
+# 	generic_m20k
+# 	generic_m10k
+# 	common_porta_latches
+# 	generic_28nm_hp_mlab_cell_impl
+# 	generic_28nm_lc_mlab_cell_impl
+# 	generic_14nm_mlab_cell_impl
+# 	generic_mux
+# 	generic_device_pll
+# 	altera_mult_add
+# 	altera_pll_reconfig_tasks
+# 	altera_syncram
+# 	altera_pll
+# 	altera_iopll
+# 	fourteennm_altera_iopll
+# 	fourteennm_simple_iopll
+# End time: 15:39:46 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlib verilog_libs/cycloneive_ver
+# ** Warning: (vlib-34) Library already exists at "verilog_libs/cycloneive_ver".
+# vmap cycloneive_ver ./verilog_libs/cycloneive_ver
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap cycloneive_ver ./verilog_libs/cycloneive_ver 
+# Modifying modelsim.ini
+# vlog -vlog01compat -work cycloneive_ver {c:/intelfpga/18.1/quartus/eda/sim_lib/cycloneive_atoms.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:46 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work cycloneive_ver c:/intelfpga/18.1/quartus/eda/sim_lib/cycloneive_atoms.v 
+# -- Compiling UDP CYCLONEIVE_PRIM_DFFE
+# -- Compiling UDP CYCLONEIVE_PRIM_DFFEAS
+# -- Compiling UDP CYCLONEIVE_PRIM_DFFEAS_HIGH
+# -- Compiling module cycloneive_dffe
+# -- Compiling module cycloneive_mux21
+# -- Compiling module cycloneive_mux41
+# -- Compiling module cycloneive_and1
+# -- Compiling module cycloneive_and16
+# -- Compiling module cycloneive_bmux21
+# -- Compiling module cycloneive_b17mux21
+# -- Compiling module cycloneive_nmux21
+# -- Compiling module cycloneive_b5mux21
+# -- Compiling module cycloneive_latch
+# -- Compiling module cycloneive_routing_wire
+# -- Compiling module cycloneive_m_cntr
+# -- Compiling module cycloneive_n_cntr
+# -- Compiling module cycloneive_scale_cntr
+# -- Compiling module cycloneive_pll_reg
+# -- Compiling module cycloneive_pll
+# -- Compiling module cycloneive_lcell_comb
+# -- Compiling module cycloneive_ff
+# -- Compiling module cycloneive_ram_pulse_generator
+# -- Compiling module cycloneive_ram_register
+# -- Compiling module cycloneive_ram_block
+# -- Compiling module cycloneive_mac_data_reg
+# -- Compiling module cycloneive_mac_sign_reg
+# -- Compiling module cycloneive_mac_mult_internal
+# -- Compiling module cycloneive_mac_mult
+# -- Compiling module cycloneive_mac_out
+# -- Compiling module cycloneive_io_ibuf
+# -- Compiling module cycloneive_io_obuf
+# -- Compiling module cycloneive_ddio_out
+# -- Compiling module cycloneive_ddio_oe
+# -- Compiling module cycloneive_pseudo_diff_out
+# -- Compiling module cycloneive_io_pad
+# -- Compiling module cycloneive_asmiblock
+# -- Compiling module cycloneive_ena_reg
+# -- Compiling module cycloneive_clkctrl
+# -- Compiling module cycloneive_rublock
+# -- Compiling module cycloneive_apfcontroller
+# -- Compiling module cycloneive_termination_ctrl
+# -- Compiling module cycloneive_termination_rupdn
+# -- Compiling module cycloneive_termination
+# -- Compiling module cycloneive_jtag
+# -- Compiling module cycloneive_crcblock
+# -- Compiling module cycloneive_oscillator
+# 
+# Top level modules:
+# 	cycloneive_dffe
+# 	cycloneive_and1
+# 	cycloneive_and16
+# 	cycloneive_bmux21
+# 	cycloneive_b17mux21
+# 	cycloneive_nmux21
+# 	cycloneive_b5mux21
+# 	cycloneive_pll_reg
+# 	cycloneive_pll
+# 	cycloneive_lcell_comb
+# 	cycloneive_ff
+# 	cycloneive_ram_block
+# 	cycloneive_mac_mult
+# 	cycloneive_mac_out
+# 	cycloneive_io_ibuf
+# 	cycloneive_io_obuf
+# 	cycloneive_ddio_out
+# 	cycloneive_ddio_oe
+# 	cycloneive_pseudo_diff_out
+# 	cycloneive_io_pad
+# 	cycloneive_asmiblock
+# 	cycloneive_clkctrl
+# 	cycloneive_rublock
+# 	cycloneive_apfcontroller
+# 	cycloneive_termination
+# 	cycloneive_jtag
+# 	cycloneive_crcblock
+# 	cycloneive_oscillator
+# End time: 15:39:46 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_tx_modulate.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:47 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_tx_modulate.v 
+# -- Compiling module nfca_tx_modulate
+# 
+# Top level modules:
+# 	nfca_tx_modulate
+# End time: 15:39:47 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_tx_frame.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:47 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_tx_frame.v 
+# -- Compiling module nfca_tx_frame
+# 
+# Top level modules:
+# 	nfca_tx_frame
+# End time: 15:39:47 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_tobytes.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_tobytes.v 
+# -- Compiling module nfca_rx_tobytes
+# 
+# Top level modules:
+# 	nfca_rx_tobytes
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_tobits.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_tobits.v 
+# -- Compiling module nfca_rx_tobits
+# 
+# Top level modules:
+# 	nfca_rx_tobits
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_dsp_bak.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_dsp_bak.v 
+# -- Compiling module nfca_rx_dsp
+# 
+# Top level modules:
+# 	nfca_rx_dsp
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_controller.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_controller.v 
+# -- Compiling module nfca_controller
+# 
+# Top level modules:
+# 	nfca_controller
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart2nfca_system_top.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart2nfca_system_top.v 
+# -- Compiling module uart2nfca_system_top
+# 
+# Top level modules:
+# 	uart2nfca_system_top
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_tx.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:48 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_tx.v 
+# -- Compiling module uart_tx
+# 
+# Top level modules:
+# 	uart_tx
+# End time: 15:39:48 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx_parser.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx_parser.v 
+# -- Compiling module uart_rx_parser
+# 
+# Top level modules:
+# 	uart_rx_parser
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx.v 
+# -- Compiling module uart_rx
+# 
+# Top level modules:
+# 	uart_rx
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/fpga_top.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/fpga_top.v 
+# -- Compiling module fpga_top
+# 
+# Top level modules:
+# 	fpga_top
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/fifo_sync.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/fifo_sync.v 
+# -- Compiling module fifo_sync
+# 
+# Top level modules:
+# 	fifo_sync
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL {C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/ad7276_read_bak.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL" C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/ad7276_read_bak.v 
+# -- Compiling module ad7276_read
+# 
+# Top level modules:
+# 	ad7276_read
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/ip {C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/ip/PLL.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/ip" C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/ip/PLL.v 
+# -- Compiling module PLL
+# 
+# Top level modules:
+# 	PLL
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/db {C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/db/pll_altpll.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/db" C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/db/pll_altpll.v 
+# -- Compiling module PLL_altpll
+# 
+# Top level modules:
+# 	PLL_altpll
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM {C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM/tb_ad7276_read.v}
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 15:39:49 on Jun 08,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM" C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM/tb_ad7276_read.v 
+# -- Compiling module tb_ad7276_read
+# 
+# Top level modules:
+# 	tb_ad7276_read
+# End time: 15:39:49 on Jun 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb_ad7276_read
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" tb_ad7276_read 
+# Start time: 15:39:50 on Jun 08,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.tb_ad7276_read(fast)
+# Loading work.ad7276_read(fast)
+# 
+# add wave *
+# 
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Time: 0, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 66000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 78000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 90000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 102000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 114000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 126000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 138000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 150000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 162000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 174000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 186000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 198000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 210000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 222000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 234000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 246000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 258000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 270000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 282000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 294000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 306000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 318000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 330000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 342000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 354000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 366000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 378000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 390000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# Time: 402000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 414000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 1, adc_data: 07c
+# Time: 426000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 450000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 462000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 474000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 486000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 498000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 510000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 522000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 534000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 546000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 558000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 570000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 582000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 594000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 606000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 618000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 630000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 642000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 654000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 666000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 678000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 690000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 702000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 714000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 726000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 738000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 750000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 762000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 774000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 07c
+# Time: 786000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 07c
+# Time: 798000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 1, adc_data: f07
+# Time: 810000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 834000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 846000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 858000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 870000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 882000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 894000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 906000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 918000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 930000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 942000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 954000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 966000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 978000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 990000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1002000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1014000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1026000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1038000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1050000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1062000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1074000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1086000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1098000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1110000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1122000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1134000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1146000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1158000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: f07
+# Time: 1170000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: f07
+# Time: 1182000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 1, adc_data: 1f0
+# Time: 1194000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1218000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1230000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1242000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1254000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1266000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1278000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1290000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1302000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1314000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1326000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1338000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1350000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1362000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1374000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1386000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1398000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1410000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1422000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1434000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1446000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1458000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1470000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1482000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1494000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1506000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1518000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1530000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1542000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 1f0
+# Time: 1554000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 1f0
+# Time: 1566000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 1, adc_data: e0f
+# Time: 1578000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1602000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1614000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1626000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1638000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1650000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1662000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1674000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1686000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1698000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1710000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1722000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1734000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1746000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1758000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1770000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1782000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1794000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1806000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1818000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1830000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1842000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1854000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1866000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1878000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1890000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1902000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1914000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1926000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: e0f
+# Time: 1938000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: e0f
+# Time: 1950000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 1, adc_data: 000
+# Time: 1962000, ad7276_csn: 1, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 1986000, ad7276_csn: 0, ad7276_sclk: 1, adc_data_en: 0, adc_data: 000
+# Time: 1998000, ad7276_csn: 0, ad7276_sclk: 0, adc_data_en: 0, adc_data: 000
+# ** Note: $stop    : C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM/tb_ad7276_read.v(64)
+#    Time: 2 us  Iteration: 0  Instance: /tb_ad7276_read
+# Break in Module tb_ad7276_read at C:/Users/Dell/Desktop/FPGA_NFC_HR/PRJ/../SIM/tb_ad7276_read.v line 64
+# End time: 20:32:49 on Jun 08,2024, Elapsed time: 4:52:59
+# Errors: 0, Warnings: 0

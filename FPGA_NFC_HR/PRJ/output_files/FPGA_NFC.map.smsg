@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at nfca_rx_tobits.v(49): always construct contains both blocking and non-blocking assignments File: C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/nfca_controller/nfca_rx_tobits.v Line: 49
+Info (10281): Verilog HDL Declaration information at uart_rx_parser.v(26): object "CHAR_A" differs only in case from object "CHAR_a" in the same scope File: C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx_parser.v Line: 26
+Info (10281): Verilog HDL Declaration information at uart_rx_parser.v(27): object "CHAR_F" differs only in case from object "CHAR_f" in the same scope File: C:/Users/Dell/Desktop/FPGA_NFC_HR/RTL/uart_rx_parser.v Line: 27

@@ -1,0 +1,28 @@
+
+State Machine - |fpga_top|uart2nfca_system_top:u_uart2nfca_system_top|nfca_controller:u_nfca_controller|nfca_rx_tobytes:u_nfca_rx_tobytes|status
+Name status.CSTOP status.PARSE status.START status.IDLE status.STOP 
+status.IDLE 0 0 0 0 0 
+status.START 0 0 1 1 0 
+status.PARSE 0 1 0 1 0 
+status.CSTOP 1 0 0 1 0 
+status.STOP 0 0 0 1 1 
+
+State Machine - |fpga_top|uart2nfca_system_top:u_uart2nfca_system_top|nfca_controller:u_nfca_controller|nfca_rx_tobits:u_nfca_rx_tobits|status
+Name status.IDLE status.STOP status.PARSE 
+status.IDLE 0 0 0 
+status.PARSE 1 0 1 
+status.STOP 1 1 0 
+
+State Machine - |fpga_top|uart2nfca_system_top:u_uart2nfca_system_top|uart_rx_parser:u_uart_rx_parser|fsm
+Name fsm.LASTB fsm.HEXL fsm.HEXH fsm.INIT fsm.INVALID 
+fsm.INIT 0 0 0 0 0 
+fsm.HEXH 0 0 1 1 0 
+fsm.HEXL 0 1 0 1 0 
+fsm.LASTB 1 0 0 1 0 
+fsm.INVALID 0 0 0 1 1 
+
+State Machine - |fpga_top|uart2nfca_system_top:u_uart2nfca_system_top|uart_rx:u_uart_rx|state
+Name state.S_IDLE state.S_STOP_BIT state.S_RX 
+state.S_IDLE 0 0 0 
+state.S_RX 1 0 1 
+state.S_STOP_BIT 1 1 0 
